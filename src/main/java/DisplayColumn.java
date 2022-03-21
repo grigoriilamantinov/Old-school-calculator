@@ -1,12 +1,19 @@
-import java.util.Arrays;
-
 public class DisplayColumn {
-    public void columnView (int firstDigit, int secondDigit, int answer) {
+    public void columnViewMinus(int firstDigit, int secondDigit, int answer) {
         DisplayColumn display = new DisplayColumn();
         System.out.println("_" + firstDigit + "\n" + display.space(firstDigit,secondDigit)
                 + secondDigit + "\n" + display.line(firstDigit,secondDigit) + "\n "
                 + answer);
     }
+
+    public void columnViewPlus(int firstDigit, int secondDigit, int answer) {
+        DisplayColumn display = new DisplayColumn();
+        System.out.println(" " + firstDigit + "\n+\n" + display.space(firstDigit,secondDigit)
+                + secondDigit + "\n" + display.line(firstDigit,secondDigit) + "\n "
+                + answer);
+    }
+
+
 
     public String line (int firstDigit, int secondDigit){
         int lineLength;
