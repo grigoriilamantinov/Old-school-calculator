@@ -1,30 +1,29 @@
 public class FormatterToColumn {
-    private final String SPACE = " ";
-    private final String MINUS = "_";
-    DigitToIntArray toArray = new DigitToIntArray();
+    public final static String SPACE = " ";
+    public final static String MINUS = "_";
 
     public void columnViewMinus(int firstDigit, int secondDigit, int answer) {
         System.out.println("_" + firstDigit + "\n" + getSecondDigitSpace(firstDigit,secondDigit)
-                + secondDigit + "\n" + gettingLine(firstDigit,secondDigit) + "\n "
+                + secondDigit + "\n" + this.gettingLine(firstDigit,secondDigit) + "\n "
                 + answer);
     }
 
     public void columnViewPlus(int firstDigit, int secondDigit, int answer) {
         if (firstDigit>secondDigit) {
         System.out.println(SPACE + firstDigit + "\n+\n " + getSecondDigitSpace(firstDigit,secondDigit)
-                + secondDigit + "\n" + gettingLine(firstDigit,secondDigit) + "\n "
+                + secondDigit + "\n" + this.gettingLine(firstDigit,secondDigit) + "\n "
                 + answer);
         } else {
         System.out.println(SPACE + getFirstDigitSpace(firstDigit,secondDigit) + firstDigit + "\n+\n "
-                +secondDigit + "\n" + gettingLine(firstDigit,secondDigit) + "\n "
+                +secondDigit + "\n" + this.gettingLine(firstDigit,secondDigit) + "\n "
                 +answer);
         }
     }
 
     public void columnViewDiv(int firstDigit, int secondDigit, int answer) {
 
-        int[] answerArray = toArray.digitToIntArray(answer);
-        int[] firstDigitArray = toArray.digitToIntArray(firstDigit);
+        int[] answerArray = this.numberToDigitArray(answer);
+        int[] firstDigitArray = this.numberToDigitArray(firstDigit);
 
         int[] partDigitArray = new int[String.valueOf(answer).length()];
         for (int i = 0; i<String.valueOf(answer).length(); i++) {
@@ -46,7 +45,7 @@ public class FormatterToColumn {
                 - (String.valueOf(remainder)).length()));
 
         int remainderOutput = 0;
-        int arrayCount = (String.valueOf(partDigitArray[0])).length();
+        int arrayCount = String.valueOf(partDigitArray[0]).length();
         StringBuilder sbRemainder = new StringBuilder();
         for (int i = 1; i < String.valueOf(answer).length(); i++) {
             if (remainder != 0) {
@@ -67,11 +66,11 @@ public class FormatterToColumn {
                     } else {
                         System.out.println(SPACE + sb + partDigitArray[i]);
                     }
-                    System.out.println(sb + gettingLine(Integer.parseInt(String.valueOf(sbRemainder)), partDigitArray[i]));
+                    System.out.println(sb + this.gettingLine(Integer.parseInt(String.valueOf(sbRemainder)), partDigitArray[i]));
                     remainder = Integer.parseInt(String.valueOf(sbRemainder)) - partDigitArray[i];
                     sbRemainder.setLength(0);
                     sb.append(SPACE);
-                    if (remainder<10) {
+                    if (remainder < 10) {
                         sb.append(SPACE);
                     }
                 }
@@ -115,7 +114,7 @@ public class FormatterToColumn {
 
         StringBuilder sb = new StringBuilder();
         Calculator calc = new Calculator();
-        int answer = calc.calcDiv(firstDigit,secondDigit);
+        int answer = calc.division(firstDigit,secondDigit);
         int spaceIntThreeStings = String.valueOf(firstDigit).length()
                 - String.valueOf(partDigitArray).length();
 
@@ -127,4 +126,13 @@ public class FormatterToColumn {
                 + "|" + answer);
     }
 
+    public int[] numberToDigitArray(int digit) {
+        String s = Integer.toString(digit);
+        int[] intArray = new int[s.length()];
+        for (int i = s.length() - 1; i >= 0; i--) {
+            intArray[i] = digit % 10;
+            digit /= 10;
+        }
+        return intArray;
+    }
 }

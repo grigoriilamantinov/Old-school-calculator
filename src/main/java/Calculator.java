@@ -1,14 +1,14 @@
 public class Calculator {
 
-    public int calcMinus (int a, int b) {
-        return a-b;
+    public int subtraction(int a, int b) {
+        return a - b;
     }
 
-    public int calcPlus (int a, int b) {
-        return a+b;
+    public int addition(int a, int b) {
+        return a + b;
     }
 
-    public int calcDiv (int a, int b) {
-        return a/b;
+    public int division(int a, int b) {
+        return a / b;
     }
 }
