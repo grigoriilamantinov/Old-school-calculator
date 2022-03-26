@@ -137,10 +137,8 @@ public class FormatterToColumn {
     }
 
     private boolean checkDivider (int partDigitArray, StringBuilder sbRemainder) {
-        boolean bool;
-        bool = (partDigitArray < 10 && Integer.parseInt(String.valueOf(sbRemainder)) > 10)
-                || (partDigitArray > 10 && Integer.parseInt(String.valueOf(sbRemainder)) < 10);
-    return bool;
+    return (partDigitArray < 10 && Integer.parseInt(String.valueOf(sbRemainder)) > 10)
+            || (partDigitArray > 10 && Integer.parseInt(String.valueOf(sbRemainder)) < 10);
 
     }
 
