@@ -12,8 +12,6 @@ class CalculatorTest {
         int expectedResult = 4;
         int actualResult = calculator.subtraction(a,b);
         assertEquals(actualResult,expectedResult);
-
-
     }
 
     @Test
