@@ -5,7 +5,7 @@ public class FormatterToColumn {
     public final static String DIVISION_LINE = "|--------";
     public final static String LINE_BREAK = "\n";
 
-    public void columnViewMinus(int firstDigit, int secondDigit, int answer) {
+    public void getColumnViewMinus(int firstDigit, int secondDigit, int answer) {
         System.out.println(MINUS
                 + firstDigit
                 + LINE_BREAK
@@ -105,8 +105,7 @@ public class FormatterToColumn {
     private void threeFirstLinesOutput(int firstDigit, int secondDigit, int partDigitArray) {
 
         StringBuilder sb = new StringBuilder();
-        Calculator calc = new Calculator();
-        int answer = calc.division(firstDigit,secondDigit);
+        int answer = Calculator.div(firstDigit,secondDigit);
         int spaceInThreeStrings = String.valueOf(firstDigit).length()
                 - String.valueOf(partDigitArray).length();
 

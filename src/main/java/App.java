@@ -2,8 +2,6 @@ import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) {
-
-        Calculator calc = new Calculator();
         Scanner sc = new Scanner(System.in);
         FormatterToColumn formatter = new FormatterToColumn();
         System.out.println("Вы ввели первое число: 95418");
@@ -15,13 +13,13 @@ public class App {
 
         switch (action) {
             case "+":
-                formatter.columnViewPlus(a, b, calc.addition(a, b));
+                formatter.columnViewPlus(a, b, Calculator.add(a, b));
                 break;
             case "-":
-                formatter.columnViewMinus(a, b, calc.subtraction(a, b));
+                formatter.getColumnViewMinus(a, b, Calculator.sub(a, b));
                 break;
             case "/":
-                formatter.columnViewDiv(a, b, calc.division(a, b));
+                formatter.columnViewDiv(a, b, Calculator.div(a, b));
                 break;
             default:
                 System.out.println("Такое действие совершить нельзя");
